@@ -1,4 +1,4 @@
-import * as userData from "../data/userData.js"
+import * as userData from "./app-data-userData.js"
 
 function saveUserData(data) {
     userData.setAllValues(data);

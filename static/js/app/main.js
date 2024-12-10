@@ -1,11 +1,10 @@
-import { auth } from "./controllers/authController.js"
-import * as app from "./controllers/appController.js"
+import { auth } from "./app-controllers-authController.js"
+import * as app from "./app-controllers-appController.js"
 
 function getMainPage(userData) {
     let buttonContainer = document.querySelector("#done_button_container");
 
-
-    return fetch("http://localhost:8080/web/main_page")
+    return fetch("/web/main_page")
             .then(response => response.text())
             .then(mainHtml => app.initAfterAuth(mainHtml, userData));
 }

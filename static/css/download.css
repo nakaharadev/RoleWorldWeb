@@ -30,8 +30,6 @@ p {
 .header {
     width: 100%;
     height: 70px;
-    background-color: #00000055;
-    backdrop-filter: blur(5px);
     z-index: 1000;
 }
 
@@ -70,12 +68,29 @@ p {
     transition: color .2s;
 }
 
+.nav_elem::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: #fff;
+    transition: .2s;
+}
+
+.nav_elem:hover::after {
+    width: 100%;
+}
+
 .nav_elem:hover {
     color: #fff;
 }
 
 .active {
     color: #00fffa;
+}
+
+.active:hover::after {
+    width: 0%;
 }
 
 .active:hover {
@@ -169,6 +184,19 @@ input[type="text"], input[type="password"], textarea, select {
     font-style: normal;
     font-size: 15pt;
     margin: 0;
+}
+
+.download_href::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: #fff;
+    transition: .2s;
+}
+
+.download_href:hover::after {
+    width: 100%;
 }
 
 .download_os_block {

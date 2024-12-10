@@ -48,6 +48,10 @@ p {
 
 .blurred_block {
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -o-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
 }
 
 .ui_block {
@@ -78,15 +82,25 @@ p {
     flex-direction: column;
 }
 
+.horizontal_block {
+    display: flex;
+    flex-direction: row;
+}
+
 #auth_block {
     width: 700px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#main_app_block {
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 .text_input {
-    width: 300px;
+    width: 100%;
     color: #fff;
     background: transparent;
     border: none;
@@ -94,14 +108,37 @@ p {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+}
+
+.text_input_container {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
     margin-bottom: 20px;
+}
+
+.toggle_password_visible_container {
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+
+}
+
+.hide_password {
+    display: none;
+}
+
+.toggle_password_visible {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .last_input {
     margin: 0;
 }
 
-input[type="text"], input[type="password"], textarea, select {
+input, textarea, select {
     outline: none;
 }
 
@@ -132,7 +169,6 @@ input[type="text"], input[type="password"], textarea, select {
 }
 
 .done_button {
-    width: 100px;
     color: #fff;
     font-size: 19pt;
     font-family: "Raleway", sans-serif;
@@ -140,12 +176,14 @@ input[type="text"], input[type="password"], textarea, select {
     font-style: normal;
     font-weight: bold;
     margin: 0;
-    transition: color .2s;
+    transition: color .2s, text-shadow .2s;
+    text-align: center;
 }
 
 .done_button:hover {
-    color: #0f0;
+    color: #ff526d;
     cursor: pointer;
+    text-shadow: 0 0 10px #ff526d;
 }
 
 .relative_bottom_left {
@@ -156,7 +194,7 @@ input[type="text"], input[type="password"], textarea, select {
 
 .logo {
     position: absolute;
-    width: 150px;
+    width: 170px;
     top: 20px;
     left: 40px;
 }
@@ -188,4 +226,26 @@ input[type="text"], input[type="password"], textarea, select {
 
 .align_center_block {
     align-items: center;
+}
+
+#nav_block {
+    width: 200px;
+}
+
+#content_block {
+    width: calc(100% - 230px);
+    margin-left: 30px;
+    box-sizing: border-box;
+}
+
+.static_pos {
+    position: static;
+}
+
+.blur_canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

@@ -1,7 +1,7 @@
 let currentAuthMode = "sign_in";
 
 function sendAuthMessage(request, callback) {
-    return fetch("http://localhost:8080/app/auth/sign_in", {
+    return fetch("/app/auth/sign_in", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -13,44 +13,82 @@ function sendAuthMessage(request, callback) {
 }
 
 export function auth(callback) {
-    document.querySelectorAll(".text_input").forEach(elem => {
-        elem.addEventListener('focus', function() {
-            let id = elem.id;
-            if (id.includes("up")) {
-                currentAuthMode = "sign_up";
-            } else if (id.includes("in")) {
-                currentAuthMode = "sign_in";
-            }
-        });
-    });
+     fetch("/web/auth_page")
+        .then(response => response.text())
+        .then(htmlData => {
+            document.querySelector("#main_app_block").innerHTML = htmlData;
 
-    document.querySelector("#auth_done").addEventListener("click", function(event) {
-        if (currentAuthMode === "sign_in") {
-            let request = {
-                email: document.querySelector("#sign_in_email").value,
-                password: document.querySelector("#sign_in_password").value
-            };
 
-            sendAuthMessage(request, callback);
 
-            return true;
-        } else if (currentAuthMode === "sign_up") {
-            let password = document.querySelector("#sign_up_password").value;
-            let repeatPassword = document.querySelector("#sign_up_repeat_password").value;
+            document.querySelectorAll(".toggle_password_visible_container").forEach(elem => {
+                let isShow = true;
+                elem.addEventListener("click", function() {
+                    if (isShow) {
+                        elem.querySelectorAll("svg").forEach(svg => {
+                            if (svg.id.includes("show")) {
+                                svg.style.display = "none"
+                            } else {
+                                svg.style.display = "block"
+                            }
+                        });
+                        document.querySelector('#' + elem.id.substring(0, elem.id.length - 8)).type = "text"
+                    } else {
+                        elem.querySelectorAll("svg").forEach(svg => {
+                            if (svg.id.includes("hide")) {
+                                svg.style.display = "none"
 
-            if (password === repeatPassword) {
-                let request = {
-                    email: document.querySelector("#sign_up_email").value,
-                    nickname: document.querySelector("#sign_up_nickname").value,
-                    password: password
-                };
+                            } else {
+                                svg.style.display = "block"
+                            }
+                        });
+                        document.querySelector('#' + elem.id.substring(0, elem.id.length - 8)).type = "password"
+                    }
 
-                sendAuthMessage(request, callback);
+                    isShow = !isShow;
+                });
+            });
 
-                return true;
-            }
-         }
+            document.querySelectorAll(".text_input").forEach(elem => {
+                elem.addEventListener("click", function() {
+                    let id = elem.id;
+                    if (id.includes("up")) {
+                        currentAuthMode = "sign_up";
+                        document.querySelector("#auth_done").innerText = "Регистрация"
+                    } else if (id.includes("in")) {
+                        currentAuthMode = "sign_in";
+                        document.querySelector("#auth_done").innerText = "Вход"
+                    }
+                });
+            });
 
-         return false;
-    });
+            document.querySelector("#auth_done").addEventListener("click", function(event) {
+                if (currentAuthMode === "sign_in") {
+                    let request = {
+                        email: document.querySelector("#sign_in_email").value,
+                        password: document.querySelector("#sign_in_password").value
+                    };
+
+                    sendAuthMessage(request, callback);
+
+                    return true;
+                } else if (currentAuthMode === "sign_up") {
+                    let password = document.querySelector("#sign_up_password").value;
+                    let repeatPassword = document.querySelector("#sign_up_password_repeat").value;
+
+                    if (password === repeatPassword) {
+                        let request = {
+                            email: document.querySelector("#sign_up_email").value,
+                            nickname: document.querySelector("#sign_up_nickname").value,
+                            password: password
+                        };
+
+                        sendAuthMessage(request, callback);
+
+                        return true;
+                    }
+                }
+
+                return false;
+            });
+        })
 }
