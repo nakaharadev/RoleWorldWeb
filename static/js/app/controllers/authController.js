@@ -9,7 +9,7 @@ function sendAuthMessage(request, callback) {
         body: JSON.stringify(request)
     })
         .then(response => response.json())
-        .then(json => callback(json));
+        .then(json => callback(json, true));
 }
 
 export function auth(callback) {
@@ -17,8 +17,6 @@ export function auth(callback) {
         .then(response => response.text())
         .then(htmlData => {
             document.querySelector("#main_app_block").innerHTML = htmlData;
-
-
 
             document.querySelectorAll(".toggle_password_visible_container").forEach(elem => {
                 let isShow = true;

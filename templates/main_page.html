@@ -4,8 +4,44 @@
             <img class="logo_img" src="/img/app_icon.png" alt="logo"/>
             <p class="logo_text">RoleWorld</p>
         </div>
+        <div class="vertical_block margin_top" id="navigation_block">
+            <p class="nav_button flex_block child_center_vertical_block active_nav_button" id="open_profile">Профиль</p>
+            <p class="nav_button flex_block child_center_vertical_block" id="open_characters">Персонажи</p>
+            <p class="nav_button flex_block child_center_vertical_block" id="open_chats">Чаты</p>
+        </div>
     </div>
     <div class="dark_block darked_block blurred_block ui_block vertical_block" id="content_block">
+        <div class="content_block visible_block fill_parent vertical_block" id="profile">
+            <div class="horizontal_block fill_width_block profile_content_block" id="user_data">
+                <img id="user_avatar" src="/app/get_user_data/%id%/avatar"/>
+                <div class="vertical_block">
+                    <p class="user_name non_margin" id="profile_user_name">NDev</p>
+                    <div class="vertical_block fill_parent space_between_block">
+                        <p class="user_email non_margin" id="profile_user_email">nikita.maer14@gmail.com</p>
+                        <p class="user_id non_margin underline_text" id="profile_user_id"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="separator">
+                <p class="separator_title">Друзья</p>
+                <div class="separator_line"></div>
+            </div>
+            <div class="horizontal_block fill_width_block profile_content_block" id="friends_data">
+                <p class="empty_list_hint">Пока нет друзей :(</p>
+            </div>
+            <div class="separator">
+                <p class="separator_title">Персонажи</p>
+                <div class="separator_line"></div>
+            </div>
+            <div class="vertical_block fill_width_block profile_content_block" id="characters_data">
+                <p class="empty_list_hint">Пока нет персонажей :(</p>
+            </div>
+        </div>
+        <div class="content_block fill_parent vertical_block child_center_vertical_block" id="characters">
+            <p class="empty_content_hint">У тебя пока нет персонажей.<br/>Хочешь <span class="underline_span clickable_span">создать нового</span>?</p>
+        </div>
+        <div class="content_block fill_parent" id="chats">
 
+        </div>
     </div>
 </div>
