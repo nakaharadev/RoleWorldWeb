@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+p {
+    cursor: default;
+}
+
+* {
+    transition: background-color .2s, color .2s;
+}

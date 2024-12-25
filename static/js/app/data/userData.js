@@ -1,6 +1,10 @@
 let json = {}
 
-function setValue(key, value) {
+function get(key) {
+    return json[key];
+}
+
+function set(key, value) {
     json[key] = value;
 }
 
@@ -14,8 +18,8 @@ function getJson() {
     return json;
 }
 
-function getValue(key) {
-    return json[key];
+function save() {
+    localStorage.setItem("userData", JSON.stringify(json));
 }
 
-export { setValue, setAllValues, getJson, getValue }
+export { get, set, setAllValues, getJson, save }

@@ -3,43 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
 
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    overflow: hidden;
-}
-
-p {
-    cursor: default;
-}
+@import url('/css/%pv&theme%_default_app.css');
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #aaa;
+    color:    var(--placeholder_color);
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #aaa;
+   color:    var(--placeholder_color);
    opacity:  1;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #aaa;
+   color:    var(--placeholder_color);
    opacity:  1;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #aaa;
+   color:    var(--placeholder_color);
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #aaa;
+   color:    var(--placeholder_color);
 }
 
 ::placeholder { /* Most modern browsers support this now. */
-   color:    #aaa;
+   color:    var(--placeholder_color);
 }
 
 .video_bg {
@@ -50,6 +39,7 @@ p {
     height: 100%;
     z-index: -1;
     object-fit: cover;
+    opacity: 1;
 }
 
 .blurred_block {
@@ -63,10 +53,7 @@ p {
 .ui_block {
     border-radius: 30px;
     padding: 30px;
-}
-
-.alpha_block {
-    background-color: #00000055;
+    background-color: var(--transparent_ui_block_bg);
 }
 
 .flex_block {
@@ -115,7 +102,7 @@ p {
 
 .text_input {
     width: 100%;
-    color: #fff;
+    color: var(--main_text_color);
     background: transparent;
     border: none;
     font-size: 15pt;
@@ -167,23 +154,15 @@ input, textarea, select {
 
 .block_title {
     padding: 0 30px;
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 15pt;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
-.dark_block {
-    background-color: #121212;
-}
-
-.darked_block {
-    opacity: .8;
-}
-
 .done_button {
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 19pt;
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
@@ -195,9 +174,9 @@ input, textarea, select {
 }
 
 .done_button:hover {
-    color: #ff526d;
+    color: var(--ui_contrast_color);
     cursor: pointer;
-    text-shadow: 0 0 10px #ff526d;
+    text-shadow: 0 0 10px var(--ui_contrast_color);
 }
 
 .relative_bottom_left {
@@ -219,7 +198,7 @@ input, textarea, select {
 }
 
 .logo_text {
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 17pt;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -244,6 +223,7 @@ input, textarea, select {
 
 #nav_block {
     width: 200px;
+    justify-content: space-between;
 }
 
 #content_block {
@@ -261,7 +241,7 @@ input, textarea, select {
 }
 
 .nav_button {
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 15pt;
     font-family: "Montserrat", sans-serif;
     width: 100%;
@@ -274,11 +254,11 @@ input, textarea, select {
 }
 
 .active_nav_button {
-     border-left: 2px solid #ff526d;
+     border-left: 2px solid var(--ui_contrast_color);
 }
 
 .nav_button:hover {
-    background-color: #212223AA;
+    background-color: var(--hovered_bg);
     cursor: pointer;
 }
 
@@ -296,6 +276,7 @@ input, textarea, select {
 
 #user_data {
     height: 100px;
+    position: relative;
 }
 
 #user_avatar {
@@ -305,36 +286,19 @@ input, textarea, select {
 }
 
 .non_margin {
-    margin: 0;
+    margin: 0 !important;
+}
+
+.non_padding {
+    padding: 0 !important;
 }
 
 .user_name {
-    color: #fff;
-    font-size: 21pt;
     margin-bottom: 12px;
-    font-family: "Kumbh Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.user_id {
-    width: max-content;
-    color: #ccc;
-    font-size: 15pt;
-    transition: color .2s;
-    font-family: "Assistant", sans-serif;
-    font-weight: 300;
-    display: inline-block;
-}
-
-.user_id:hover {
-    color: #fff;
-    cursor: pointer;
 }
 
 .user_email {
-    color: #ccc;
+    color: var(--hint_color);
     font-size: 16pt;
     font-family: "Assistant", sans-serif;
     font-weight: 300;
@@ -345,7 +309,7 @@ input, textarea, select {
     width: 0px;
     height: 1px;
     display: block;
-    background: #fff;
+    background: var(--main_text_color);
     transition: .2s;
 }
 
@@ -364,21 +328,22 @@ input, textarea, select {
 }
 
 .separator_title {
-    margin-right: 10px;
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 15pt;
     font-family: "Assistant", sans-serif;
-    font-weight: 100;
+    font-weight: 600;
+    margin: 0;
+    margin-right: 10px;
 }
 
 .separator_line {
     width: 100%;
     height: 1px;
-    background: #aaa;
+    background: var(--horizontal_separator_color);
 }
 
 #friends_data {
-    height: 80px;
+    height: 120px;
     display: flex;
     align-items: center;
 }
@@ -388,13 +353,19 @@ input, textarea, select {
 }
 
 .empty_list_hint {
-    color: #ccc;
+    color: var(--hint_color);
     font-size: 14pt;
     font-family: "Assistant", sans-serif;
     font-weight: 400;
 }
 
 .character_avatar {
+    width: 100%;
+    height: 100%;
+}
+
+.character_avatar_container {
+    position: relative;
     width: 90px;
     height: 90px;
     margin-right: 20px;
@@ -407,12 +378,12 @@ input, textarea, select {
 }
 
 .character_card:hover {
-    background-color: #212223AA;
+    background-color: var(--hovered_bg);
     cursor: pointer;
 }
 
 .character_name {
-    color: #fff;
+    color: var(--main_text_color);
     font-family: "Kumbh Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -427,7 +398,8 @@ input, textarea, select {
 }
 
 .empty_content_hint {
-    color: #ccc;
+    width: 100%;
+    color: var(--hint_color);
     font-size: 15pt;
     font-family: "Montserrat", sans-serif;
     text-align: center;
@@ -442,7 +414,7 @@ input, textarea, select {
 }
 
 .clickable_span:hover {
-    color: #fff;
+    color: var(--main_text_color);
     cursor: pointer;
 }
 
@@ -453,12 +425,19 @@ input, textarea, select {
 }
 
 .extended_character_name {
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 21pt;
     font-family: "Kumbh Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.character_extended_sex {
+    height: 25px;
 }
 
 .extended_character_card {
@@ -478,7 +457,7 @@ input, textarea, select {
     height: 100%;
     margin-top: 5px;
     box-sizing: border-box;
-    color: #ddd;
+    color: var(--darked_text_color);
     font-size: 13pt;
     overflow: hidden;
     white-space: nowrap;
@@ -490,7 +469,7 @@ input, textarea, select {
 }
 
 .extended_character_data_title {
-    color: #fff;
+    color: var(--main_text_color);
     font-size: 15pt;
     font-family: "Assistant", sans-serif;
     font-weight: 300;
@@ -508,5 +487,182 @@ input, textarea, select {
     height: 100%;
     margin: 0 5px;
     box-sizing: border-box;
-    background-color: #212223;
+    background-color: var(--separator_color);
+}
+
+.fast_buttons_container {
+    background-color: var(--transparent_ui_block_bg);
+    position: absolute;
+    top: 20px;
+    right: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: opacity .2s;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.fast_buttons_container:hover {
+    opacity: 1;
+}
+
+#toggle_language {
+    color: var(--hint_color);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0;
+    font-size: 17pt;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: color .2s;
+    opacity: 1;
+}
+
+#toggle_language:hover {
+    color: var(--main_text_color);
+}
+
+.settings_field_title {
+    color: var(--main_text_color);
+    font-size: 15pt;
+    font-family: "Assistant", sans-serif;
+    margin: 0;
+}
+
+.settings_selector {
+    padding: 5px 7px;
+    background-color: var(--selector_bg);
+    border-radius: 10px;
+    color: var(--hint_color);
+    transition: color .2s, opacity .2s;
+    font-size: 14pt;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.settings_selector:hover {
+    color: var(--main_text_color);
+    cursor: pointer;
+}
+
+.settings_field {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    width: 60px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color .4s;
+    border-radius: 17px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--main_text_color);
+    -webkit-transition: -webkit-transform .4s, -ms-transform .4s, transform .4s;
+    transition: .4s;
+    border-radius: 17px;
+}
+
+input:checked + .slider {
+    background-color: var(--ui_contrast_color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.character_sex {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+}
+
+#edit_user_profile {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    right: 30px;
+}
+
+.profile_input {
+    background-color: transparent;
+    border: none;
+    color: var(--main_text_color);
+    display: none;
+}
+
+#profile_user_name {
+    color: var(--main_text_color);
+    font-size: 21pt;
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#profile_user_name_input {
+    font-size: 21pt;
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#profile_user_id {
+    width: max-content;
+    color: var(--hint_color);
+    font-size: 15pt;
+    transition: color .2s;
+    font-family: "Assistant", sans-serif;
+    font-weight: 300;
+    display: inline-block;
+}
+
+#profile_user_id:hover {
+    color: var(--main_text_color);
+    cursor: pointer;
+}
+
+#profile_user_id_input {
+    width: max-content;
+    color: var(--hint_color);
+    font-size: 15pt;
+    transition: color .2s;
+    font-family: "Assistant", sans-serif;
+    font-weight: 300;
 }

@@ -1,0 +1,14 @@
+* {
+    --placeholder_color: #444;
+    --transparent_ui_block_bg: #dededeaa;
+    --main_text_color: #000;
+    --ui_block_bg: #dedede;
+    --ui_contrast_color: #ff526d;
+    --hovered_bg: #89898966;
+    --hint_color: #313233;
+    --darked_text_color: #212223;
+    --selector_hovered_bg: #000;
+    --separator_color: #515253;
+    --horizontal_separator_color: #515253;
+    --selector_bg: #ccc;
+}

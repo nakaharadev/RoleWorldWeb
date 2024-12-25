@@ -1,47 +1,59 @@
 <div class="horizontal_block fill_parent">
-    <div class="dark_block darked_block blurred_block ui_block vertical_block" id="nav_block">
-        <div class="logo flex_block space_between_block align_center_block static_pos">
-            <img class="logo_img" src="/img/app_icon.png" alt="logo"/>
-            <p class="logo_text">RoleWorld</p>
+    <div class="blurred_block ui_block vertical_block" id="nav_block">
+        <div>
+            <div class="logo flex_block space_between_block align_center_block static_pos">
+                <img class="logo_img" src="/img/app_icon.png" alt="logo"/>
+                <p class="logo_text">RoleWorld</p>
+            </div>
+            <div class="vertical_block margin_top" id="navigation_block">
+                <p class="nav_button flex_block child_center_vertical_block active_nav_button localized menu_profile_btn" id="open_profile">%loc&menu_profile_btn%</p>
+                <p class="nav_button flex_block child_center_vertical_block localized menu_characters_btn" id="open_characters">%loc&menu_characters_btn%</p>
+                <p class="nav_button flex_block child_center_vertical_block localized menu_chats_btn" id="open_chats">%loc&menu_chats_btn%</p>
+            </div>
         </div>
-        <div class="vertical_block margin_top" id="navigation_block">
-            <p class="nav_button flex_block child_center_vertical_block active_nav_button" id="open_profile">Профиль</p>
-            <p class="nav_button flex_block child_center_vertical_block" id="open_characters">Персонажи</p>
-            <p class="nav_button flex_block child_center_vertical_block" id="open_chats">Чаты</p>
-        </div>
+        <p class="nav_button flex_block child_center_vertical_block localized menu_settings_btn" id="open_settings">%loc&menu_settings_btn%</p>
     </div>
-    <div class="dark_block darked_block blurred_block ui_block vertical_block" id="content_block">
+    <div class="blurred_block ui_block vertical_block" id="content_block">
         <div class="content_block visible_block fill_parent vertical_block" id="profile">
             <div class="horizontal_block fill_width_block profile_content_block" id="user_data">
-                <img id="user_avatar" src="/app/get_user_data/%id%/avatar"/>
-                <div class="vertical_block">
-                    <p class="user_name non_margin" id="profile_user_name">NDev</p>
-                    <div class="vertical_block fill_parent space_between_block">
-                        <p class="user_email non_margin" id="profile_user_email">nikita.maer14@gmail.com</p>
-                        <p class="user_id non_margin underline_text" id="profile_user_id"></p>
+                <div class="horizontal_block">
+                    <img id="user_avatar" src="/app/get_user_data/%pv&id%/avatar"/>
+                    <div class="vertical_block">
+                        <div class="user_name">
+                            <p class="non_margin profile_editable" id="profile_user_name"></p>
+                            <input class="profile_input" type="text" id="profile_user_name_input" placeholder="%loc&nickname%"/>
+                        </div>
+                        <div class="user_id">
+                            <p class="non_margin underline_text profile_editable" id="profile_user_id"></p>
+                            <input class="profile_input" type="text" id="profile_user_id_input" placeholder="%pv&id%"/>
+                        </div>
                     </div>
                 </div>
+                %svg&edit_icon&edit_btn&edit_user_profile%
             </div>
             <div class="separator">
-                <p class="separator_title">Друзья</p>
+                <p class="separator_title localized profile_friends_block_title">%loc&profile_friends_block_title%</p>
                 <div class="separator_line"></div>
             </div>
             <div class="horizontal_block fill_width_block profile_content_block" id="friends_data">
-                <p class="empty_list_hint">Пока нет друзей :(</p>
+                <p class="empty_list_hint localized profile_friends_block_empty">%loc&profile_friends_block_empty%</p>
             </div>
             <div class="separator">
-                <p class="separator_title">Персонажи</p>
+                <p class="separator_title localized profile_characters_block_title">%loc&profile_characters_block_title%</p>
                 <div class="separator_line"></div>
             </div>
             <div class="vertical_block fill_width_block profile_content_block" id="characters_data">
-                <p class="empty_list_hint">Пока нет персонажей :(</p>
+                <p class="empty_list_hint localized profile_characters_block_empty">%loc&profile_characters_block_empty%</p>
             </div>
         </div>
         <div class="content_block fill_parent vertical_block child_center_vertical_block" id="characters">
-            <p class="empty_content_hint">У тебя пока нет персонажей.<br/>Хочешь <span class="underline_span clickable_span">создать нового</span>?</p>
+            <p class="empty_content_hint localized characters_list_empty_hint">%loc&characters_list_empty_hint%</p>
         </div>
         <div class="content_block fill_parent" id="chats">
-
+            <p class="empty_content_hint localized chats_list_empty_hint">%loc&chats_list_empty_hint%</p>
+        </div>
+        <div class="content_block fill_parent vertical_block" id="settings">
+            %tmpl&settings%
         </div>
     </div>
 </div>
